@@ -41,9 +41,8 @@ animateParticles();
 const videos = [
     { id: "jMC37hP2PRA", title: "Coffe Shop" },
     { id: "2Mgm0uIS9cI", title: "Gotham" },
-    { id: "pMFGPC3YsVY", title: "Interior" },
-    { id: "7pv6kvPBmTw", title: "Interior 2" },
     { id: "DInfaA1SdH4", title: "Houses" },
+    { id: "nTwD-XscPmU", title: "Weater Forcast" },
     { id: "phdcUBrqpWw", title: "Satellite" },
     { id: "lLUWxrwUx6c", title: "Volcanic Environment" },
     { id: "5IFnQuZnClY", title: "Rocks VFX" },
