@@ -3,63 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivam Pandit</title>
+    <title>Shivam Pandit | 3D Visualizer</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700;900&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
-    <canvas id="background-canvas"></canvas>
-
-    <section id="home">
-        <div class="profile-container">
-        <!--<img src="D:\My Website\IMG_9991_preview1.png"  class="profile-photo">-->
-            <h1>Shivam Pandit</h1>
-        </div>
-        <h2>My Portfolio</h2>
-        <div class="video-grid">
-            <!-- Videos will be inserted here by JavaScript -->
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I’m a passionate 3D artist, visualizer and Video Editor specializing in immersive environments and cutting-edge visual content.
-            With a strong foundation in Unreal Engine and a knack for creating dynamic 3D worlds, I thrive at the intersection of creativity and technology.
-            My expertise spans across industry-standard software like Blender, Maya, Substance Painter, Adobe Premiere Pro, After Effects, and Photoshop, 
-            allowing me to bring both artistic vision and technical precision to every project.
-
-            I have honed my skills through hands-on experience, including a 6-month video editing internship at Pro Shooter VR, where I created engaging visual narratives.
-            I’m now applying my knowledge to push the boundaries of 3D visualization in architectural design, blending realism with imaginative storytelling.</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>If you would like to get in touch, feel free to reach out via email or LinkedIn!</p>
-        <div class="contact-links">
-            <a href="mailto:shivamandnet@gmail.com" class="contact-icon" title="Email">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="https://www.linkedin.com/in/shivam-pandit/" target="_blank" class="contact-icon" title="LinkedIn">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-        </div>
-    </section>
-
-    <!-- Modal for playing videos -->
-    <div id="video-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe id="youtube-iframe" width="100%" height="480" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Cinematic Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <h2 class="loading-text">INITIALIZING SCENE</h2>
+            <div class="counter">0%</div>
+            <div class="progress-bar"><div class="progress"></div></div>
         </div>
     </div>
-    <footer>
-        <p>Created by Shivam Pandit..</p>
-    </footer>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- WebGL Scroll-Reactive Background -->
+    <div id="canvas-container"></div>
+    <div class="scanlines"></div>
+
+    <div class="main-wrapper">
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="reveal-text">
+                    <h1 class="outline-text scramble-text" data-value="SHIVAM">SHIVAM</h1>
+                </div>
+                <div class="reveal-text">
+                    <h1 class="solid-text glow-text scramble-text" data-value="PANDIT">PANDIT</h1>
+                </div>
+                <p class="hero-subtitle">Technical 3D Artist & Visualizer</p>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll or Hold Click for Warp Drive</span>
+            </div>
+        </section>
+
+        <!-- Kinetic Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-text">
+                <span>UNREAL ENGINE</span> <span>•</span> <span>BLENDER</span> <span>•</span> <span>WEBGL</span> <span>•</span> <span>EVENT VISUALIZATION</span> <span>•</span> <span>UNREAL ENGINE</span> <span>•</span> <span>BLENDER</span> <span>•</span>
+            </div>
+        </div>
+
+        <section id="work" class="gs-reveal">
+            <div class="section-header">
+                <h2 class="section-title scramble-text" data-value="Selected Works">Selected Works</h2>
+                <p class="section-desc">Real-time renders, structural visualizations, and motion design.</p>
+            </div>
+            <div class="video-grid">
+                <!-- Videos injected via JS -->
+            </div>
+        </section>
+
+        <section id="about" class="gs-reveal">
+            <div class="glass-card about-card">
+                <h2 class="section-title scramble-text" data-value="The Architecture">The Architecture</h2>
+                <div class="about-content">
+                    <p>I engineer immersive environments and high-fidelity structural visualizations. Specializing in complex, multi-dimensional event infrastructure, I bridge the gap between artistic vision and technical execution.</p>
+                    <p>Driven by Unreal Engine and Blender, my workflow is built for real-time rendering and interactive spatial design. From crafting multi-dimensional stages in Pune to optimizing assets for WebGL, I am dedicated to pushing the boundaries of spatial storytelling.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="gs-reveal contact-section">
+            <div class="contact-content">
+                <h2 class="massive-text scramble-text" data-value="INITIALIZE">INITIALIZE<br><span class="accent-text scramble-text" data-value="PROJECT">PROJECT</span></h2>
+                <div class="contact-links">
+                    <a href="mailto:shivamandnet@gmail.com" class="cyber-btn primary-btn scramble-btn" data-value="TRANSMIT_EMAIL"><span>TRANSMIT_EMAIL</span></a>
+                    <a href="https://www.linkedin.com/in/shivam-pandit/" target="_blank" class="cyber-btn secondary-btn scramble-btn" data-value="ESTABLISH_LINK"><span>ESTABLISH_LINK</span></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- YouTube API Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="video-title-display">Project Viewer</span>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="iframe-container">
+                <div id="youtube-player"></div>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
