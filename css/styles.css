@@ -160,12 +160,16 @@ nav a:hover,.footer a:hover { color: var(--cream) }
   .scene-stops { grid-column: 1 / -1; grid-row: 2 }
 }
 
-.stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-top: 1px solid var(--line); padding-block: 1.7rem }
-.stats div { display: flex; flex-direction: column-reverse; justify-content: flex-end; padding-inline: min(4vw,3.5rem); border-left: 1px solid var(--line) }
+.stats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border-top: 1px solid var(--line); padding-block: 1.7rem }
+.stats div { padding-inline: min(4vw,3.5rem); border-left: 1px solid var(--line) }
 .stats div:first-child { border-left: 0; padding-left: 0 }
-.stats dd { font: 500 clamp(2.5rem,4.5vw,4.3rem)/1 var(--serif); color: var(--champagne) }
-.stats dt { color: var(--muted); font-size: .85rem; margin-top: .4rem }
-@media(max-width: 520px) { .stats div { padding-inline: .7rem } .stats dt { font-size: .76rem } .stats { padding-block: 1.2rem } }
+.stats dt { font: 500 clamp(2.5rem,4.5vw,4.3rem)/1 var(--serif); color: var(--champagne) }
+.stats dd { color: var(--muted); font-size: .85rem; margin-top: .4rem }
+@media(max-width: 520px) {
+  .stats { grid-template-columns: 1fr; gap: 1rem; padding-block: 1.2rem }
+  .stats div { display: grid; grid-template-columns: 6.5rem 1fr; align-items: center; gap: .75rem; padding: 0; border: 0 }
+  .stats dd { margin: 0 }
+}
 
 .work-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .work-heading p { font-size: .85rem; color: var(--muted); }
@@ -226,7 +230,8 @@ details p { padding-bottom: 1rem }
 .chips li { padding: .25rem .6rem; border: 1px solid var(--line); border-radius: 2px; color: var(--muted); font-size: .78rem }
 .tile { display: block; text-decoration: none; min-width: 0 }
 .tile-image { position: relative; background: var(--surface); overflow: hidden; border-radius: 2px }
-.tile-image img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover }
+.tile-image img { width: 100%; height: auto; object-fit: cover }
+.gallery .tile-image img { aspect-ratio: 16 / 9 }
 .tile figcaption { display: flex; align-items: center; justify-content: space-between; gap: .5rem; color: var(--champagne); font-size: .85rem; padding-block: .45rem; border-bottom: 1px solid var(--line) }
 .tile figcaption span { font: 1.1rem/1 var(--sans) }
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
@@ -262,7 +267,7 @@ body:has(dialog[open]) { overflow: hidden }
 .case-brief p { color: var(--muted); max-width: 56ch }
 .gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(.8rem,2vw,1.8rem) }
 .gallery .tile:only-child,.gallery .tile:last-child:nth-child(odd) { grid-column: 1 / -1 }
-.case-cover .tile-image img { width: 100%; height: auto; aspect-ratio: auto; max-height: 76svh; object-fit: contain }
+.case-cover .tile-image img { max-height: 76svh; object-fit: contain }
 .case-footer { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-block: clamp(1.5rem,4vw,4rem) }
 .next-project { display: grid; text-align: right; gap: .4rem; max-width: 68%; text-decoration: none }
 .next-project strong { color: var(--champagne); font: 500 clamp(1.6rem,3vw,3.2rem)/1.12 var(--serif) }
@@ -272,17 +277,41 @@ body:has(dialog[open]) { overflow: hidden }
 @media(max-width: 520px) { .gallery { grid-template-columns: 1fr } .case-footer { align-items: start } }
 
 
-.practice,.tools-title,.clients { margin-top: clamp(2.5rem,5vw,5rem) }
-.practice h3,.tools-title,.clients h3 { font-size: clamp(1.9rem,3vw,2.8rem); color: var(--champagne) }
+.practice,.tools-title,.clients,.practice-block { margin-top: clamp(2.5rem,5vw,5rem) }
+.practice h3,.tools-title,.clients h3,.practice-block h3 { font-size: clamp(1.9rem,3vw,2.8rem); color: var(--champagne) }
 .ruled-list,.clients ul { list-style: none; padding: 0; margin: 1.2rem 0 0 }
 .ruled-list li { padding-block: .6rem; border-bottom: 1px solid var(--line) }
-.tools,.clients ul { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 1.2rem; gap: 1px; background: var(--line); border: 1px solid var(--line) }
-.tools div,.clients li { background: var(--surface); padding: 1.2rem }
+.tools,.clients ul,.process-steps,.quote-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 1.2rem; gap: 1px; background: var(--line); border: 1px solid var(--line) }
+.tools div,.clients li,.process-steps li,.quote-grid figure { background: var(--surface); padding: 1.2rem }
 .tools dt { font-weight: 700; color: var(--champagne) }
 .tools dd,.clients p { color: var(--muted); font-size: .9rem }
 .clients ul { grid-template-columns: repeat(4,minmax(0,1fr)) }
-.clients li { display: grid; place-items: center; text-align: center; font: 600 clamp(1.2rem,2vw,1.7rem) var(--serif); min-height: 76px }
+.clients li { display: grid; grid-template-columns: minmax(0,1fr); place-items: center; text-align: center; font: 600 clamp(1.2rem,2vw,1.7rem) var(--serif); min-height: 5.25rem }
+.clients li > * { grid-area: 1 / 1 }
+.clients img { visibility: hidden; width: 9rem; max-width: 100%; height: 2.5rem; object-fit: contain; filter: grayscale(1) }
+.clients .has-logo img { visibility: visible }
+.clients .has-logo span { visibility: hidden }
+.clients li:hover img { filter: grayscale(0) }
 .clients p { margin-top: 1rem }
+.process-steps { list-style: decimal-leading-zero inside; margin-bottom: 0; padding: 0 }
+.process-steps li::marker { color: var(--muted); font: 700 .85rem var(--sans) }
+.process-steps h4 { margin-block: .35rem; font: 600 1.4rem/1.15 var(--serif); color: var(--champagne) }
+.process-steps p,.brief-checklist,.quote-grid figcaption { color: var(--muted); font-size: .9rem }
+.brief-checklist { margin-top: 1rem }
+.quote-grid,.comparison-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+.quote-grid blockquote { margin: 0 0 1rem; font: 500 1.5rem/1.3 var(--serif) }
+.quote-name { display: block }
+.quote-role:not(:empty) + .quote-company:not(:empty)::before { content: ' · ' }
+.comparison-grid { display: grid; gap: 1rem; margin-block: 1.2rem }
+.comparison-grid img { width: 100%; height: auto }
+.comparison-grid figcaption,.collection-description { color: var(--muted); font-size: .9rem; margin-top: .5rem }
+.case-enquiry p { font: 500 clamp(1.35rem,2.3vw,2rem)/1.25 var(--serif) }
+.case-enquiry p a { display: inline-block; text-decoration: underline; font: inherit; color: var(--champagne) }
+@media(max-width: 650px) {
+  .process-steps,.quote-grid,.comparison-grid { grid-template-columns: 1fr }
+  .case-footer { flex-direction: column; align-items: start }
+  .case-footer .next-project { max-width: 100%; text-align: left }
+}
 @media(max-width: 650px) { .backstage-intro,.practice { grid-template-columns: 1fr } .tools,.clients ul { grid-template-columns: repeat(2,minmax(0,1fr)) } .tools div,.clients li { padding: .85rem } }
 
 .films { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1.5rem 1rem }
@@ -301,7 +330,7 @@ body:has(dialog[open]) { overflow: hidden }
 #contact { padding-block: clamp(4rem,9vw,9rem) }
 #contact h2 { max-width: 17ch; margin: 1rem 0 1.75rem }
 #contact h2 em { color: var(--champagne); font-weight: inherit }
-.email { display: inline-block; max-width: 100%; overflow-wrap: anywhere; text-decoration-thickness: 1px; color: var(--champagne); font: 500 clamp(1.5rem,4.2vw,3.5rem)/1.2 var(--serif) }
+.agency-invite { font-size: clamp(1.5rem,3vw,2.4rem); color: var(--champagne) }
 .contact-links { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.1rem }
 .contact-availability { color: var(--muted); margin-top: 1.5rem; font-size: .9rem }
 

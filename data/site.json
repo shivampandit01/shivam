@@ -1,0 +1,95 @@
+{
+  "name": "Shivam Pandit",
+  "role": "3D Event Visualization Artist",
+  "location": "Pune, India",
+  "title": "Shivam Pandit | 3D Event Visualization for Agencies, Pune",
+  "metaDescription": "3D event visualization for agencies by Shivam Pandit in Pune. Get stage, exhibition and venue renders for client sign-off before fabrication.",
+  "heroHeadlineDraft": "Your event, rendered before it's built.",
+  "heroSubDraft": "Stage design, entrances, brand activations and complete venue layouts, visualized in 3D so agencies can win approvals faster.",
+  "availability": [
+    "Freelance Projects",
+    "Retainer Engagements",
+    "Full-Time Senior Roles"
+  ],
+  "availabilityNote": "Audience is event agencies hiring freelancers: lead with freelance and retainer; mention full-time quietly (contact section only).",
+  "contact": {
+    "email": "shivamandnet@gmail.com",
+    "phone": "+91 8830977340",
+    "linkedin": "https://www.linkedin.com/in/shivam-pandit/"
+  },
+  "stats": [
+    {
+      "value": "25+",
+      "label": "Corporate event projects"
+    },
+    {
+      "value": "3",
+      "label": "Fortune-500 brand clients",
+      "confirm": true
+    },
+    {
+      "value": "100+",
+      "label": "Presentation-ready renders"
+    }
+  ],
+  "about": [
+    "I help event agencies get client sign-off before fabrication. My renders show vendors and fabricators what to build, so you can spot problems before they cost time on site.",
+    "I work through the whole venue, from the entrance arch and main stage to the aerial floor plan. I model, light and render every layout in Blender or Unreal Engine 5, using Midjourney, ChatGPT, Gemini and Kling only for ideas and visual references."
+  ],
+  "specializations": [
+    "Stage Design & Event Concepts",
+    "Exhibition & Brand Activation Spaces",
+    "Entrance Experiences & Registration Zones",
+    "Complete Venue Layouts & Floor Plans",
+    "AI-Integrated Visualization Workflow"
+  ],
+  "everyProjectCovers": [
+    "Entrance arch",
+    "Registration zone",
+    "Main stage",
+    "Photobooth and activations",
+    "Aerial floor plan"
+  ],
+  "tools": [
+    {
+      "name": "Blender 3D",
+      "use": "Primary 3D modeling, lighting and rendering"
+    },
+    {
+      "name": "Unreal Engine 5",
+      "use": "Real-time visualization and walkthroughs"
+    },
+    {
+      "name": "Adobe Photoshop",
+      "use": "Post-processing and compositing"
+    },
+    {
+      "name": "Adobe Illustrator",
+      "use": "Brand graphics and 2D artwork"
+    },
+    {
+      "name": "Adobe After Effects",
+      "use": "Motion graphics and animation"
+    },
+    {
+      "name": "AI tools",
+      "use": "Midjourney, ChatGPT, Gemini, Kling for faster ideation and concept development"
+    }
+  ],
+  "clients": [
+    "Icertis",
+    "ZS Associates",
+    "Promobi Technologies",
+    "Atlas Copco",
+    "Schlumberger",
+    "Metro Global",
+    "Media Ocean",
+    "Snowflake",
+    "Atlassian",
+    "Principal",
+    "Jabil",
+    "Flextronix"
+  ],
+  "clientsNote": "Show each supplied logo in grayscale, with the client name as its fallback.",
+  "clientsFooter": "...and many more across corporate events, conferences and brand activations."
+}

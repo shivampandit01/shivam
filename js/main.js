@@ -20,6 +20,14 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 const study = document.querySelector('.case-study');
 
+// Keep the roster's text visible until the supplied artwork has loaded.
+for (const logo of document.querySelectorAll('.clients img')) {
+  const showLogo = () => logo.parentElement.classList.toggle('has-logo', logo.naturalWidth > 0);
+  logo.addEventListener('load', showLogo);
+  logo.addEventListener('error', showLogo);
+  if (logo.complete) showLogo();
+}
+
 // Match each project card to its case-study cover, including history navigation.
 const cards = [...document.querySelectorAll('.project-card')];
 function matchCover(transition, otherPage) {
